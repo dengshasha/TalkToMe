@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('templates/header-title') %>
+    <link rel="stylesheet" href="stylesheets/check.css">
+</head>
+<body>
+<%- include('templates/header-simple') %>
+    <div class="info">
+        <div class="info-img">
+            <img src="images/check-bg.jpg" alt="" width="300px">
+        </div>
+        <div class="info-text">
+            <h3>看起来你还没有登录呢，要不先去登录一下?</h3>
+            <a href="/signin" class="signin">立即登录</a>
+        </div>
+    </div>
+<%- include('templates/footer')%>
+</body>
+</html>

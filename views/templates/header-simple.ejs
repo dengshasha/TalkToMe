@@ -1,0 +1,86 @@
+<header>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#main-nav">
+                <div class="slidenav-toggle">
+                    <!--菜单按钮-->
+                </div>
+                <!-- <span class="sr-only">切换导航</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>-->
+            </button>
+            <a class="navbar-brand" href="/">
+                lotusKB <span>(knowledge base)</span>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="main-nav">
+            <!--<ul class="nav navbar-nav">
+                <li class="active"><a href="#">主页</a></li>
+                <li class="underline"><a href="#">知识</a></li>
+                <li class="underline"><a href="#">其它</a></li>
+                <li class="underline"><a href="#">关于</a></li>
+            </ul>-->
+            <div class="searchlogin-group">
+                <% if(user){ %>
+                <div class="btn-user">
+                    <div class="btn-group">
+                        <a href="#" id="dropdown-toggle">
+                            <img src="<%= user.avatar %>" alt="" width="45px" height="45px">
+                        </a>
+                        <div class="dropdown-nav" id="dropdown-nav">
+                            <div class="dropdown-nav-title">
+                                <p>Hello,<%= user.username %></p>
+                            </div>
+                            <p><a href="/post">新建笔记</a></p>
+                            <p><a href="/manage?userId=<%= user._id %>">个人中心</a></p>
+                            <p><a href="#" data-toggle="modal" data-target="#signout-modal">退出登录</a></p>
+                        </div>
+                    </div><!--end btn-group-->
+                </div><!--end btn-user-->
+                <% } else { %>
+                <div class="btn-group input-login">
+                    <a href="/signin" class="btn-login">登录</a>
+                </div>
+                <% } %>
+            </div><!--end searchlogin-group-->
+        </div><!--end collapse-->
+    </nav>
+</header>
+
+<div class="modal fade" id="signout-modal" tabindex="-1" role="dialog" aria-labelledby="prompt-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">提示</h4>
+            </div>
+            <div class="row modal-body" style="text-align: center;">
+                <p>确定要退出吗？</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="signout">确定</button>
+            </div>
+        </div>
+    </div>
+    <!--提示-->
+    <div class="modal fade" id="signout-success" tabindex="-1" role="dialog" aria-labelledby="prompt-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    <p id="prompt-text"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--end modal-->
+

@@ -1,0 +1,144 @@
+@main-color:rgb(61, 125, 82);
+@main-color-hover:#28905A;
+@font-color:#8c8c8c;
+@line-color:#d9dde1;
+@red-color:#DD575C;//红色
+@red-color-hover:#C03B37;
+@bg-color:#3a3a3a;
+@screen-xs-min:520px;
+@screen-xs-max:768px;
+@screen-sm-max:992px;
+@screen-md-max:1200px;
+body{
+	font-family: "Microsoft YaHei";
+}
+/*两个编辑器样式*/
+.newpage-content{
+	.title{
+		color: @font-color;
+		input[type="text"]{
+			border:1px solid @line-color;
+			height: 30px;
+			outline-style: none;
+			padding-left: 10px;
+			transition:border .3s linear;
+		}
+		input[type="text"]:focus{
+			border: 1px solid @main-color;
+			border-radius: 5px;
+		}
+		label{
+			font-weight: 400;
+			color: @font-color;
+			line-height: 30px;
+		}
+	}
+	/*切换编辑器*/
+	.editor-toggle{
+		margin: 15px 0;
+		a{
+			color: @main-color;
+			font-weight: bolder;
+		}
+		a:hover{
+			color:@main-color-hover;
+		}
+	}
+	//标签
+	.tag-content {
+		margin: 10px;
+		span{
+			position: relative;
+			display: inline-block;
+			padding: .3em 1.2em;
+			margin-right: 10px;
+			margin-bottom:5px;
+			color: #fff;
+			background-color: #DD575C;
+			border-radius: 5px;
+			a{
+				all: initial;
+				position: relative;
+				width: 15px;
+				height: 15px;
+				display: inline-block;
+				vertical-align: middle;
+				left: 10px;
+			}
+			a:after {
+				content: '×';
+				line-height: 15px;
+				position: absolute;
+				top: 0.6px;
+				left: 1px;
+				color: white;
+				font-weight: bolder;
+				font-size: 13px;
+			}
+		}
+	}
+	//分类
+	.col-sm-3,.col-sm-9{
+		position: static;
+	}
+	.category{
+		label{
+			font-weight: normal;
+			color: @font-color;
+			line-height: 34px;
+		}
+		a{
+			color: @red-color;
+			font-weight: bolder;
+			border-radius: 0;
+		}
+		span{
+			color: @font-color;
+		}
+	}
+	//提交
+	.submit{
+		text-align: center;
+		margin: 30px auto;
+		button{
+			padding: .5em 2em;
+			background-color: @red-color;
+			color: #fff;
+			border:0;
+			letter-spacing: 2px;
+		}
+		button:hover{
+			background-color: @red-color-hover;
+		}
+	}
+
+	/*html编辑器*/
+	.html-editor{
+		margin-top: 50px;
+		textarea{
+			min-height: 650px;
+		}
+	}
+	/*markdown编辑器*/
+	.markdown-editor{
+		margin-top: 50px;
+	}
+
+	/*两个编辑器的自适应问题*/
+	@media(max-width: @screen-xs-max){
+		.html-editor{
+			width: 100%;
+		}
+		.markdown-editor{
+			width: 100%;
+		}
+	}
+	@media(max-width: @screen-xs-min){
+		.html-editor{
+			width: 510px;
+		}
+		.markdown-editor{
+			width: 520px;
+		}
+	}
+}

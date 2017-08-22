@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('templates/header-title') %>
+    <link rel="stylesheet" href="stylesheets/index.css">
+    <link rel="stylesheet" href="resources/editor.md/css/editormd.css" />
+    <link rel="stylesheet" href="/resources/bootstrap-treeview/bootstrap-treeview.css">
+</head>
+<body>
+<div class="all" id="all">
+    <header id="header">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#main-nav">
+                    <div class="slidenav-toggle">
+                        <!--菜单按钮-->
+                    </div>
+                    <!-- <span class="sr-only">切换导航</span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>-->
+                </button>
+                <a class="navbar-brand" href="/">
+                    lotusKB <span>(knowledge base)</span>
+                </a>
+            </div><!--end ./navbar-header-->
+            <div class="collapse navbar-collapse" id="main-nav">
+                <div class="nav navbar-right top-nav">
+                    <% if(user){ %>
+                    <div class="btn-user">
+                        <div class="btn-group">
+                            <a href="#" id="dropdown-toggle">
+                                <img src="<%= user.avatar %>" alt="" width="45px" height="45px">
+                            </a>
+                            <div class="dropdown-nav" id="dropdown-nav">
+                                <div class="dropdown-nav-title">
+                                    <p>Hello,<%= user.username %></p>
+                                </div>
+                                <p><a href="/post">新建笔记</a></p>
+                                <p><a href="/manage?userId=<%= user._id %>">个人中心</a></p>
+                                <p><a href="#" data-toggle="modal" data-target="#signout-modal">退出登录</a></p>
+                            </div>
+                        </div><!--end btn-group-->
+                    </div><!--end btn-user-->
+                    <% } else { %>
+                    <div class="btn-group input-login">
+                        <a href="/signin" class="btn-login">登录</a>
+                    </div>
+                    <% } %>
+                    <div class="search-wrap" id="search-wrap">
+                        <form method="post" id="search-form">
+                            <input type="text" placeholder="请输入文章标题或内容..." class="search-input" id="search-input">
+                            <input type="button" value="搜索" class="search-submit" id="search-submit">
+                        </form>
+                    </div><!--end search-wrap-->
+                </div><!--end navbar-right-->
+
+                <div class="nav navbar-nav side-nav" id="side-nav">
+                    <div class="slidenav-bg">
+                        <h1>目录</h1>
+                    </div>
+                    <!--分类树-->
+                    <div id="tree"></div>
+                </div>
+            </div><!--end collapse-->
+        </nav>
+    </header>
+
+    <div class="main">
+        <div class="main-middle row" id="contentContainer"></div>
+    </div><!--end main-->
+    <!--退出登录-->
+    <div class="modal fade" id="signout-modal" tabindex="-1" role="dialog" aria-labelledby="prompt-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="row modal-body" style="text-align: center;">
+                    <p id="prompt-body">确定要退出吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="signout">确定</button>
+                </div>
+            </div>
+        </div>
+    </div><!--end modal-->
+    <!--退出成功-->
+    <div class="modal fade" id="signout-success" tabindex="-1" role="dialog" aria-labelledby="prompt-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    <p id="prompt-text"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div><!--end modal-->
+    <!--确定删除-->
+    <div class="modal fade" id="remove" tabindex="-1" role="dialog" aria-labelledby="prompt-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">提醒</h4>
+                </div>
+                <div class="modal-body">
+                    <p>确定要删除这篇文章吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" v-on:click="removeArticle()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('templates/modal') %>
+</div><!--end all-->
+
+<%- include('templates/footer') %>
+</body>
+<script src="resources/editor.md/editormd.js"></script><!--markdown editor-->
+<script src="resources/editor.md/lib/marked.min.js"></script>
+<script src="resources/editor.md/lib/prettify.min.js"></script>
+<script src="resources/editor.md/lib/raphael.min.js"></script>
+<script src="resources/editor.md/lib/underscore.min.js"></script>
+<script src="resources/editor.md/lib/sequence-diagram.min.js"></script>
+<script src="resources/editor.md/lib/flowchart.min.js"></script>
+<script src="resources/editor.md/lib/jquery.flowchart.min.js"></script>
+<script src="/resources/bootstrap-treeview/bootstrap-treeview.js"></script>
+<script src="javascripts/main.js"></script>
+<script>
+    window.onscroll = function () {
+        var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
+        if(scrollHeight > 0 && scrollHeight < 70){
+            $("#side-nav").css('top',70 - scrollHeight);
+        }else if(scrollHeight >= 70){
+            $("#side-nav").css('top',0);
+        } else{
+            $("#side-nav").css('top','70px');
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,110 @@
+<div class="category" id="category">
+
+    <div class="row add-root" v-if="allowAction">
+        <div class="form-group">
+            <div class="col-sm-9">
+                <input type="text" class="form-control" v-model="newCategory.categoryName" placeholder="分类名">
+                <p class="prompt" v-bind:style="{display:isError.add_root_error}">分类名不能为空!</p>
+            </div>
+            <div class="col-sm-3 add-root-btn">
+                <a href="#" class="btn" v-on:click="addRoot()">添加根节点</a>
+            </div>
+        </div>
+    </div>
+
+    <!--分类表格-->
+    <div id="tree" class="category-tree"></div>
+    <!--添加分类-->
+    <div class="modal fade add-category" id="add-category" tabindex="-1" role="dialog" aria-labelledby="prompt-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">添加分类</h4>
+                </div>
+                <div class="row modal-body">
+                    <label for="category-name" class="col-sm-2 control-label">分类名：</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="category-name" v-model="newCategory.categoryName" placeholder="新建分类将是当前分类的子分类">
+                        <p class="prompt" v-bind:style="{display:isError.category_error}">分类名不能为空!</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" v-on:click="addCategory()">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--编辑分类-->
+    <div class="modal fade add-category" id="edit-category" tabindex="-1" role="dialog" aria-labelledby="prompt-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">编辑分类</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <label for="category-name" class="col-sm-2 control-label">分类名：</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="category-name" v-model="editCategory.categoryName">
+                            <p class="prompt" v-bind:style="{display:isError.category_error}">分类名不能为空!</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="" class="col-sm-2 control-label">父分类：</label>
+                        <div class="col-sm-10">
+                            <select name="" id="" class="form-control" v-model="editCategory.parentId">
+                                <option :value="item._id" v-for="item in category1">{{item.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" v-on:click="cancel()">取消</button>
+                    <button type="button" class="btn btn-primary" v-on:click="edit()">修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--删除分类-->
+    <div class="modal fade" id="remove-category" tabindex="-1" role="dialog" aria-labelledby="prompt-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="row modal-body" style="text-align: center;">
+                    <p>{{removePrompt}}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ btnContent }}</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="removeCategory()" v-bind:style="{display:btnIsShow}">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--提示-->
+    <div class="modal fade" id="prompt" tabindex="-1" role="dialog" aria-labelledby="prompt-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="prompt-title">{{ promptTitle }}</h4>
+                </div>
+                <div class="row modal-body" style="text-align: center;">
+                    <p id="prompt-body">{{ promptBody }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/javascripts/manage-category.js"></script>

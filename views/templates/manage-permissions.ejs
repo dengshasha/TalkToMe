@@ -1,0 +1,18 @@
+
+<div class="user">
+    <% for(var i = 0 ; i < users.length ; i ++) { %>
+   <dov class="col-sm-4 col-xs-6">
+       <div class="info">
+           <div class="avatar">
+               <img class="img-circle" src="<%= users[i].avatar %>" alt="">
+           </div>
+           <div class="name">
+               <p><%= users[i].nickname %></p>
+           </div>
+           <div class="form-group">
+               <a href="/manage?userId=<%= users[i]._id %>" class="btn">查看</a>
+           </div>
+       </div>
+   </dov>
+    <% } %>
+</div>

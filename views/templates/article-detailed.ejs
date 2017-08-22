@@ -1,0 +1,57 @@
+<!--模板用于文章详情和主页-->
+<div class="article-detailed1">
+    <div class="head">
+        <div class="title">
+            <h3>
+                <a href="#">
+                    <%= post.title %>
+                </a>
+            </h3>
+        </div>
+        <div class="time">
+            <p>
+                <span>
+                    <%= post.time %>
+                </span>
+                <% if(allowAction) { %>
+                <a href="/post/edit/?id=<%=post._id%>">编辑</a>&nbsp;|&nbsp;
+                <a href="#" data-target="#remove" data-toggle="modal">删除</a>
+                <% } %>
+            </p>
+            <input type="text" value="<%=post._id%>" hidden id="postId">
+        </div>
+        <div class="classification">
+            <p>分类：<a href="">
+                    <%= post.categoryName %>
+                </a>
+            </p>
+        </div>
+    </div><!--end head-->
+
+
+    <div id="content">
+        <% if(post.mkContent) { %>
+        <div class="content" id="mk-content">
+            <textarea name="" id="editormd-mk-content" style="display: none;"><%= post.mkContent %></textarea>
+        </div>
+        <% } else { %>
+        <div class="content">
+            <%- post.content %>
+        </div>
+        <% } %>
+    </div>
+
+</div>
+
+
+    <script>
+        var editormdView;
+        editormdView = editormd.markdownToHTML('mk-content',{
+            htmlDecode      : "style,script,iframe",  // you can filter tags decode
+            emoji           : true,
+            taskList        : true,
+            tex             : true,  // 默认不解析
+            flowChart       : true,  // 默认不解析
+            sequenceDiagram : true,  // 默认不解析
+        });
+    </script>

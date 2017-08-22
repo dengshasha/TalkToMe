@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('templates/header-title') %>
+    <link rel="stylesheet" href="/stylesheets/manage.css">
+    <link rel="stylesheet" href="/resources/bootstrap-treeview/bootstrap-treeview.css">
+</head>
+<body>
+<%- include('templates/header-simple')%>
+<div class="manage-bg">
+    <div class="manage-information">
+        <div class="manage-portrait">
+            <img src="<%= currentUser.avatar %>" alt="" width="150px" height="150px">
+        </div>
+        <div class="manage-user-information">
+            <h2><%= currentUser.nickname %></h2>
+        </div>
+    </div>
+</div><!--end manage-bg-->
+<div class="manage-content" id="manage">
+    <div class="manage-option">
+        <a href="#" v-on:click="loadModule" PagePath="manage-user-info" >个人信息</a>
+        <a href="#" v-on:click="loadModule" PagePath="manage-article" class="active">文章列表</a>
+        <a href="#" v-on:click="loadModule" PagePath="manage-category">个人分类</a>
+        <% if(allowAction){ %>
+        <a href="#" v-on:click="loadModule" PagePath="manage-permissions">用户管理</a>
+        <% } %>
+    </div>
+    <div class="manage-info" id="manage-info"></div>
+
+</div>
+<%- include('templates/footer') %>
+</body>
+<script src="/resources/bootstrap-treeview/bootstrap-treeview.js"></script>
+<script>
+    var userId = '<%= currentUser._id %>';
+</script>
+<script src="/javascripts/manage.js"></script>
+</html>

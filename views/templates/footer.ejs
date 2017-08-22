@@ -1,0 +1,40 @@
+<!--<footer class="well">
+    <p> A Knowledge Base,Communicate With Each Other.</p>
+</footer>-->
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<script>
+    var url='<%= config.webBaseUrl %>';
+    $(document).ready(function () {
+        //退出登录
+
+        $("#signout").click(function () {
+            $.ajax({
+                url:'/signout',
+                type:'get',
+                success:function () {
+                    $("#signout-modal").modal('hide');
+                    $("#signout-success").modal('show');
+                    $("#prompt-text").html('退出成功');
+                    setTimeout(function () {
+                        window.location.href = url;
+                    },1000);
+                },
+                error:function () {
+                    $("#signout-modal").modal('hide');
+                    $("#signout-success").modal('show');
+                    $("#prompt-text").html('退出失败，请重试');
+                }
+            })
+        })
+
+
+        $("#dropdown-toggle").click(function (){
+            $("#dropdown-nav").slideToggle('fast');
+        });
+
+    });
+</script>
+

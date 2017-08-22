@@ -1,0 +1,61 @@
+@font-face {
+  font-family: arialrounded;
+  src: url('../fonts/arialrounded.ttf');
+}
+.all {
+  width: 100%;
+}
+.all .all-bg {
+  background-color: #00A551;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3D7D52), to(#00A551));
+  background-image: -webkit-linear-gradient(top, #3D7D52 0, #00A551 100%);
+  background-image: -o-linear-gradient(top, #3D7D52 0, #00A551 100%);
+  background-image: linear-gradient(to bottom, #3D7D52 0, #00A551 100%);
+  background-repeat: repeat-x;
+  color: #cdbfe3;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3D7D52', endColorstr='#00A551', GradientType=0);
+  height: 400px;
+  position: relative;
+  padding: 30px 0;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+.all .all-bg .container {
+  color: #fff;
+}
+.all .all-bg .container .logo-text {
+  border: 1px solid #fff;
+  border-radius: 10px;
+  font-size: 40px;
+  font-family: arialrounded;
+  height: 80px;
+  line-height: 80px;
+  margin: 0 auto;
+  text-align: center;
+  width: 200px;
+}
+.all .all-bg .container h3 {
+  font-family: SimHei STHeiti;
+  letter-spacing: 3px;
+  line-height: 40px;
+  margin: 50px auto 0;
+  width: 70%;
+}
+.all .all-bg .container .use-btn {
+  margin: 50px auto 0;
+  text-align: center;
+}
+.all .all-bg .container .use-btn a {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  font-size: 20px;
+  letter-spacing: 3px;
+  line-height: 50px;
+  width: 150px;
+}
+.all .all-bg .container .use-btn a:hover {
+  background-color: #fff;
+  color: #3d7d52;
+}

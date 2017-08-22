@@ -1,0 +1,18 @@
+<div class="detailed-toggle" id="detailed-toggle">
+    <div class="detailed-user-info">
+        <div class="detailed-user-info-head">
+            <img src=" <%= userInfo.avatar == null ? 'images/headportrait.jpg' : userInfo.avatar%>" alt="" width="120px" height="120px">
+        </div>
+        <div class="detailed-user-info-name">
+            <h4>昵称：<%= userInfo.nickname  %></h4>
+        </div>
+        <div class="detailed-user-info-department">
+            <p>所属部门：<%= deInfo.name %></p>
+        </div>
+        <% if(user && user.username == userInfo.username) { %>
+        <div class="userinfoModify">
+            <a href="/userinfoModify">修改个人信息</a>
+        </div>
+        <% } %>
+    </div><!--end detailed-user-info-->
+</div><!--end detailed-toggle-->

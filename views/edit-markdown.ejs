@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('templates/header-title') %>
+    <link rel="stylesheet" href="/stylesheets/post.css">
+    <link rel="stylesheet" href="/resources/editor.md/css/editormd.css" />
+</head>
+<body>
+
+<%- include('templates/header-simple') %>
+<div class="container newpage-content" id="container">
+    <form class="html-editor" role="form">
+        <div class="title row">
+            <label for="title" class="control-label col-xs-2">标题：</label>
+            <div class="col-xs-10">
+                <input type="text" name="title" id="title" class="form-control" v-model="title"/>
+            </div>
+        </div>
+        <div class="editor-toggle">
+            <a href="/post">切换到html编辑器</a>
+        </div>
+
+        <div id="markdown-editor" style="clear: both;">
+             <textarea class="editormd-markdown-textarea" name="editormd-markdown-doc" style="display:none;" id="mk-content">
+<%= post.mkContent %>
+             </textarea>
+            <!--隐藏文本域，用来构造生成的html代码，方便表单post提交-->
+            <textarea name="content" id="content" class="editormd-html-textarea"></textarea>
+        </div>
+
+
+        <!--用于提交给后台判断是从哪个编辑器发表过来的文章-->
+        <input type="hidden" id="editor-value" v-bind:value="editorValue='markdown'">
+
+        <div class="category row">
+            <label for="select-category" class="control-label col-sm-3">个人分类：<a href="#" data-toggle="modal" data-target="#add-category">[新建分类]</a></label>
+            <div class="col-sm-9">
+                <select name="" id="select-category" class="form-control" v-model="categorySelected">
+                    <option v-for="item in category" v-bind:value="item._id">{{ item.name }}</option>
+                </select>
+            </div>
+        </div>
+
+
+        <% if(isManage) { %>
+        <div class="submit">
+            <button type="button" v-on:click="mSubmit()">推送</button>
+        </div>
+        <% } else  { %>
+        <div class="submit">
+            <button type="button" v-on:click="submit()">发表博客</button>
+        </div>
+        <% } %>
+
+    </form>
+    <!--添加分类-->
+    <div class="modal fade" id="add-category" tabindex="-1" role="dialog" aria-labelledby="prompt-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">添加分类</h4>
+                </div>
+                <div class="row modal-body" style="padding: 20px">
+                    <input type="text" class="form-control" v-model="newCategory.categoryName" placeholder="分类名，默认添加成根节点">
+                    <p class="prompt" v-bind:style="{display:isError.add_root_error}">分类名不能为空!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" v-on:click="addRoot()">添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('templates/modal') %>
+</div><!--end container newpage-content-->
+<%- include('templates/footer') %>
+</body>
+<script src="/resources/editor.md/editormd.js"></script><!--markdown editor-->
+<script src="/javascripts/edit.js"></script>
+<script src="/resources/editor.md/lib/marked.min.js"></script>
+<script src="/resources/editor.md/lib/prettify.min.js"></script>
+<script src="/resources/editor.md/lib/raphael.min.js"></script>
+<script src="/resources/editor.md/lib/underscore.min.js"></script>
+<script src="/resources/editor.md/lib/sequence-diagram.min.js"></script>
+<script src="/resources/editor.md/lib/flowchart.min.js"></script>
+<script src="/resources/editor.md/lib/jquery.flowchart.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var testEditor;
+        $(function() {
+            testEditor = editormd("markdown-editor", {
+                width  : "100%",
+                height : 780,
+                path   : '/resources/editor.md/lib/',
+                imageUpload :true,
+                imageFormats : ["jpg","jpeg","png","gif"],
+                imageUploadURL:"./post-markdown/imgupload",
+                saveHTMLToTextarea: true,      //开启这个配置项可以让html代码放在第二个textarea域中，方便Post提交表单
+                previewTheme : "dark",
+                theme:"dark",
+                editorTheme : '3024-night'
+            });
+        });
+    })
+</script>
+</html>
+

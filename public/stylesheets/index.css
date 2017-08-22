@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Microsoft YaHei';
+  font-size: 14px;
+  color: #8c8c8c;
+}
+header.navbar-fixed-top {
+  border-width: 0 0 2px;
+}
+@media (min-width: 767px) {
+  .side-nav {
+    position: fixed;
+    top: 70px;
+    bottom: 0;
+    background-color: #fff;
+    width: 230px;
+    left: 0;
+    z-index: 1;
+    overflow-y: auto;
+    border-right: 2px solid #DD575C;
+    transition: all .3s linear;
+  }
+  .side-nav .slidenav-bg {
+    width: 100%;
+    height: 150px;
+    background-color: #DD575C;
+    text-align: center;
+  }
+  .side-nav .slidenav-bg h1 {
+    margin: 0;
+    color: #fff;
+    line-height: 150px;
+    letter-spacing: 5px;
+  }
+}
+@media (max-width: 767px) {
+  .slidenav-bg {
+    display: none;
+  }
+}
+.main {
+  width: auto;
+  position: relative;
+  margin-left: 230px;
+  /*start main-middle*/
+  /*end main-middle*/
+}
+.main .row {
+  margin: 0;
+}
+.main .main-middle {
+  width: 100%;
+  min-height: 860px;
+  height: auto;
+  transition: margin-left 0.3s linear;
+  /*没有选择任何分类*/
+  /*文章详情*/
+  /*搜索的文章详情*/
+}
+.main .main-middle .default {
+  position: relative;
+}
+.main .main-middle .total {
+  text-align: right;
+  margin-top: 20px;
+  padding-right: 60px;
+}
+.main .main-middle .article-detailed1 .head,
+.main .main-middle .article-detailed2 .head {
+  border-bottom: 1px solid #d9dde1;
+}
+.main .main-middle .article-detailed1 .title p,
+.main .main-middle .article-detailed2 .title p {
+  color: #8c8c8c;
+  padding-left: 25px;
+}
+.main .main-middle .article-detailed1 .title a,
+.main .main-middle .article-detailed2 .title a {
+  margin-left: 5px;
+  color: #368043;
+}
+.main .main-middle .article-detailed1 .classification p,
+.main .main-middle .article-detailed2 .classification p {
+  margin-top: 15px;
+}
+.main .main-middle .article-detailed1 .classification a,
+.main .main-middle .article-detailed2 .classification a {
+  color: #3d7d52;
+}
+.main .main-middle .article-detailed1 .time,
+.main .main-middle .article-detailed2 .time {
+  float: right;
+  padding-right: 20px;
+}
+.main .main-middle .article-detailed1 .time p,
+.main .main-middle .article-detailed2 .time p {
+  font-size: 12px;
+  color: #8c8c8c;
+  margin-bottom: 0;
+}
+.main .main-middle .article-detailed1 .time p span,
+.main .main-middle .article-detailed2 .time p span {
+  padding-right: 15px;
+}
+.main .main-middle .article-detailed1 .time p a,
+.main .main-middle .article-detailed2 .time p a {
+  color: #368043 ;
+}
+.main .main-middle .article-detailed1 {
+  width: 60%;
+  margin: 50px auto 0;
+  border: 1px solid #d9dde1;
+  border-radius: 5px;
+}
+.main .main-middle .article-detailed1 .head {
+  margin: 0 40px;
+}
+.main .main-middle .article-detailed1 .content {
+  padding: 40px;
+  min-height: 300px;
+}
+@media (max-width: 992px) {
+  .main .main-middle .article-detailed1 {
+    width: 100%;
+  }
+}
+.main .main-middle .article-detailed2 {
+  margin-top: 50px;
+  border: 1px solid #d9dde1;
+  border-radius: 5px;
+}
+.main .main-middle .article-detailed2 .content {
+  height: 300px;
+  overflow: auto;
+  margin-top: 20px;
+}
+@media (max-width: 767px) {
+  .main .main-article {
+    margin-left: 0;
+  }
+}
+@media (max-width: 767px) {
+  .main {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+@media (max-width: 520px) {
+  .main {
+    width: 520px;
+  }
+}
+/*end main*/
+footer.well {
+  z-index: 10;
+}

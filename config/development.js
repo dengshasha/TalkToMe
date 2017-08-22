@@ -1,0 +1,10 @@
+module.exports={
+    mongo:{
+        connectionStr:"mongodb://localhost:50017/lotuskb",
+        cookieSecret:'lotuskb',
+        db:'data',
+        host:'localhost'
+    },
+    webBaseUrl:"http://lotuskb.v.vidahouse.com",
+    port:4002
+};

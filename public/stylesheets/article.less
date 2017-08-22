@@ -1,0 +1,189 @@
+@main-color:#3D7D52;//rgb(61, 125, 82);
+@main-color-hover:#28905A;
+@font-color:#8c8c8c;
+@line-color:#d9dde1;
+@red-color:#DD575C;//红色
+@red-color-hover:#C03B37;
+@bg-color:#3a3a3a;
+@screen-xs-min:520px;
+@screen-xs-max:768px;
+@screen-sm-max:992px;
+@screen-md-max:1200px;
+@font-face {
+    font-family: arialrounded;
+    src:url('../fonts/arialrounded.ttf');
+};
+@font-name:arialrounded;
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Microsoft YaHei';
+    font-size: 14px;
+    background-color: #FAF9F5;
+    color: @font-color;
+}
+a{
+    text-decoration: none;
+    color:@font-color;
+}
+a:hover,a:active,a:focus{
+    text-decoration: none;
+}
+.container{
+    width: 100%;
+}
+
+
+.all{
+    width: 100%;
+    min-height: 850px;
+    height: auto;
+    .article-bg{
+        width: 100%;
+        height: 250px;
+        background: url("../images/article-bg.jpg") no-repeat;
+    }
+    @media(max-width: @screen-xs-min){
+        .article-bg{
+            width: 520px;
+        }
+    }
+    /*start article-all*/
+    .article-all{
+        width: 60%;
+        min-height: 500px;
+        height: auto;
+        position: relative;
+        overflow: hidden;
+        top:-80px;
+        margin: 0 auto;
+        background-color: #fff;
+        border:1px solid @line-color;
+        box-shadow: 0 2px 7px 1px #ccc;
+        //侧边导航栏
+        .article-slidenav{
+            float: left;
+            width: 200px;
+            height: 100%;
+            margin-bottom: -10000px;
+            padding-bottom: 10000px;
+            overflow: hidden;
+            border-right: 1px solid @line-color;
+            h5{
+                text-align: left;
+                background-color: #eee;
+                margin: 0;
+                line-height: 25px;
+                padding-left: 5px;
+            }
+            .author{
+                text-align: center;
+                margin-bottom: 30px;
+                .avatar{
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 50%;
+                    border: 1px solid @line-color;
+                    text-align: center;
+                    margin: 15px auto;
+                    a{
+                        display: block;
+                    }
+                    img{
+                        margin-top: 5px;
+                        border-radius: 50%;
+                    }
+                }
+                a{
+                    color: #368043;
+                }
+            }
+
+            .treeview .list-group-item{
+                cursor:pointer;
+                padding:0 15px;
+                line-height: 35px;
+                font-size: 12px;
+            }
+        }
+    }
+    @media(max-width:@screen-md-max ){
+        .article-all{
+            width: 100%;
+        }
+    }
+    @media(max-width:@screen-xs-min){
+        .article-all{
+            width: 520px;
+        }
+    }
+    /*end article-all*/
+    .article-detailed{
+        margin-left: 200px;
+        .head{
+            height: 100px;
+            border-bottom: 1px solid @line-color;
+        }
+        .title{
+            padding: 0 0 15px 35px;
+            p{
+                color: @font-color;
+                padding-left: 25px;
+            }
+            a{
+                margin-left: 5px;
+                color: #368043;
+            }
+        }
+
+        .classification{
+            float: left;
+            padding-left: 35px;
+            p{
+                font-size: 12px;
+            }
+            a{
+                color:@main-color;
+            }
+        }
+        .time{
+            text-align: right;
+            float: right;
+            padding-right: 20px;
+            p{
+                font-size: 12px;
+                color: @font-color;
+                span{
+                    padding-right: 15px;
+                }
+                a{
+                    color:#368043 ;
+                }
+
+            }
+        }
+        .content{
+            padding: 40px;
+            min-height: 300px;
+            border-bottom: 1px solid @line-color;
+            overflow: auto;
+        }
+    }
+}
+
+/*确定删除模态框*/
+.article-modal{
+    .modal-dialog{
+        width: 350px;
+        margin-top: 200px;
+        .modal-footer{
+            button{
+                letter-spacing: 4px;
+            }
+            button.btn-primary{
+                background-color: @red-color;
+                border:1px solid @red-color;
+            }
+        }
+    }
+}

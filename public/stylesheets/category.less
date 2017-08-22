@@ -1,0 +1,50 @@
+@main-color:rgb(61, 125, 82);
+@main-color-hover:#28905A;
+@font-color:#8c8c8c;
+@line-color:#d9dde1;
+@red-color:#DD575C;//红色
+@red-color-hover:#C03B37;
+@bg-color:#3a3a3a;
+@screen-xs-min:520px;
+@screen-xs-max:768px;
+@screen-sm-max:992px;
+@screen-md-max:1200px;
+.main{
+    margin:50px auto 0;
+    min-height: 800px;
+    width: 62%;
+    color: @font-color;
+    .add-root{
+        margin-bottom: 30px;
+        label{
+            font-weight: normal;
+            text-align: center;
+            color: @font-color;
+            line-height: 30px;
+        }
+        a{
+            background-color: @red-color;
+            color: #fff;
+        }
+    }
+    @media (max-width: @screen-xs-max){
+        .add-root{
+            .add-root-btn{
+                margin-top: 20px;
+            }
+        }
+    }
+    .add-category{
+        label{
+            font-weight: normal;
+            text-align: right;
+            line-height: 35px;
+            color: @font-color;
+        }
+    }
+}
+@media (max-width: @screen-xs-min) {
+    .main{
+        width: 520px;
+    }
+}

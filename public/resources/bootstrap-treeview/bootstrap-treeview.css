@@ -1,0 +1,39 @@
+.treeview .list-group-item{
+    cursor:pointer;
+    padding:0 15px;
+    line-height: 50px;
+
+}
+.treeview .list-group-item:hover{
+    background-color: #000;
+}
+.treeview span.indent{
+    margin-left:10px;
+    margin-right:10px;
+}
+.treeview span.icon{
+    width:12px;
+    margin-right:5px;
+}
+.treeview .node-disabled{
+    color:silver;
+    cursor:not-allowed;
+}
+.treeview .btn-group{
+    float: right;
+    margin-right: 20px;
+    padding-top: 8px;
+}
+.treeview .btn-group span{
+    /*color: rgb(61, 125, 82);*/
+    font-size: 12px;
+}
+.treeview .btn-group span:hover{
+    text-decoration: underline;
+}
+.treeview .text{
+    float: right;
+}
+.treeview .text p{
+   font-size: 12px;
+}

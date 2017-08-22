@@ -1,0 +1,288 @@
+@main-color:rgb(61, 125, 82);
+@main-color-hover:#28905A;
+@font-color:#8c8c8c;
+@line-color:#d9dde1;
+@red-color:#DD575C;//红色
+@red-color-hover:#C03B37;
+@bg-color:#3a3a3a;
+@screen-xs-min:520px;
+@screen-xs-max:768px;
+@screen-sm-max:992px;
+@screen-md-max:1200px;
+body{
+     margin:0;
+    padding:0;
+    font-family: 'Microsoft YaHei';
+    font-size: 14px;
+    color: @font-color;
+}
+@font-face {
+    font-family: arialrounded;
+    src:url('../fonts/arialrounded.ttf');
+};
+@font-name:arialrounded;
+/*背景图*/
+.manage-bg{
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background: url("../images/manage-bg1.jpg") no-repeat no-repeat ;
+    background-size: cover;
+    .manage-information{
+        width: 60%;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+        .success-info{
+           text-align: center;
+            color: @font-color;
+        }
+
+        .manage-portrait{
+            width: 160px;
+            height: 160px;
+            position: absolute;
+            top:65%;
+            left:0;
+            border-radius: 50%;
+            text-align: center;
+            border: 5px solid #000;
+            img{
+                border-radius: 50%;
+            }
+        }
+        .manage-user-information{
+            margin: 0 auto;
+            padding-top: 130px;
+            padding-left: 200px;
+            overflow: hidden;
+            h2{
+                font-family:@font-name;
+                margin-bottom: 20px;
+                color: #fff;
+                font-weight: bold;
+            }
+           h5{
+                color: #fff;
+                letter-spacing: 2px;
+           }
+        }
+    }
+    @media(max-width: @screen-md-max){
+        .manage-information{
+            width: 100%;
+            .manage-portrait{
+                left: 40px;
+            }
+        }
+    }
+    /*end manage-information*/
+}
+@media(max-width: @screen-xs-min){
+    .manage-bg{
+        width: 520px;
+
+    }
+}
+/*end manage-bg*/
+
+.manage-content{
+    width:50%;
+    min-height: 550px;
+    height: auto;
+    margin: 0 auto;
+    .manage-option{
+        margin-top: 80px;
+        border-bottom: 1px solid @main-color;
+        a{
+            font-size: 12px;
+            width: 100px;
+            display: inline-block;
+            line-height: 30px;
+            text-align: center;
+        }
+        a.active{
+            border: 1px solid @main-color;
+            border-bottom: 0;
+            color: @main-color;
+            font-weight: bolder;
+        }
+    }
+    /*end manage-option*/
+    .manage-info{
+        margin-top: 30px;
+        /*我的文章版块*/
+        .mypermission {
+            table {
+                font-size: 12px;
+                td {
+                    height: 40px;
+                    line-height: 40px;
+                }
+                td a {
+                    color: #368043;
+                }
+                td a:hover {
+                    text-decoration: underline;
+                }
+            }
+            .table>tbody>tr>td{
+                border-top: 0;
+            }
+            .add-article{
+                text-align: center;
+                button{
+                    background-color: @red-color;
+                    color: #fff;
+                    border-radius: 0;
+                    letter-spacing: 2px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+    /*end manage-info*/
+
+    /*个人信息版块*/
+    .detailed-user-info {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        .detailed-user-info-head {
+            width: 100%;
+            height: 130px;
+            text-align: center;
+            margin-top: 30px;
+            img {
+                border-radius: 50%;
+                border: 2px solid @red-color;
+            }
+        }
+        .detailed-user-info-name {
+            width: 100%;
+            text-align: center;
+            p {
+                margin-top: 25px;
+            }
+        }
+        .userinfoModify {
+            margin-top: 50px;
+            a {
+                padding: .6em 1.5em;
+                background-color: @red-color;
+                color: #fff;
+            }
+            a:hover {
+                text-decoration: none;
+                background-color: @red-color-hover;
+            }
+        }
+    }
+    /* end detailed-user-info 个人信息版块 */
+
+    /*start 个人分类*/
+    .add-root{
+        margin-bottom: 30px;
+        label{
+            font-weight: normal;
+            text-align: center;
+            color: @font-color;
+            line-height: 30px;
+        }
+        a{
+            background-color: @red-color;
+            color: #fff;
+        }
+    }
+    @media (max-width: @screen-xs-max){
+        .add-root{
+            .add-root-btn{
+                margin-top: 20px;
+            }
+        }
+    }
+    .add-category{
+        label{
+            font-weight: normal;
+            text-align: right;
+            line-height: 35px;
+            color: @font-color;
+        }
+    }
+    .category-tree{
+        font-size: 12px;
+    }
+    /*end 个人分类*/
+    /*start 用户管理*/
+    .user{
+        .info{
+            text-align: center;
+            margin: 20px auto;
+            height: 180px;
+            border: 1px solid @line-color;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .avatar{
+            width: 70px;
+            height: 70px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 1px solid @main-color;
+            text-align: center;
+            img{
+                width: 67px;
+                height: 67px;
+            }
+        }
+        .name{
+            margin-top: 10px;
+        }
+        .btn{
+            background-color: @main-color;
+            color: #fff;
+            letter-spacing: 3px;
+            font-size: 12px;
+        }
+    }
+    /*end 用户管理*/
+
+}
+@media (max-width: @screen-md-max) {
+    .manage-content{
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+@media (max-width: @screen-xs-max) {
+    .manage-content{
+        width: 100%;
+        .manage-option{
+            margin-top: 80px;
+        }
+    }
+}
+@media (max-width: @screen-xs-min) {
+    .manage-content{
+        width: 520px;
+    }
+}
+
+/*end manage-content*/
+
+/*start footer*/
+footer.well{
+    margin-bottom: 0;
+    text-align: center;
+    background-color: @bg-color;
+    border: 0;
+    border-radius: 0;
+    clear: both;
+    z-index: 1;
+    position: relative;
+    p{
+        color: #fff;
+    }
+}
+/*end footer*/
+

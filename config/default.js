@@ -1,0 +1,10 @@
+module.exports={
+    mongo:{
+        connectionStr:"mongodb://VidaComm:VidaComm2017$@114.55.112.21:50017/vd_common",
+        cookieSecret:'lotuskb',
+        db:'data',
+        host:'localhost'
+    },
+    webBaseUrl:"http://localhost:3000",
+    port:3000
+};

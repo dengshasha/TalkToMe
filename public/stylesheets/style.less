@@ -1,0 +1,296 @@
+@main-color:rgb(61, 125, 82);
+@main-color-hover:#28905A;
+@font-color:#8c8c8c;
+@line-color:#d9dde1;
+@red-color:#DD575C;//红色
+@red-color-hover:#C03B37;
+@bg-color:#3a3a3a;
+@screen-xs-min:520px;
+@screen-xs-max:768px;
+@screen-sm-max:992px;
+@screen-md-max:1200px;
+@font-face {
+  font-family: arialrounded;
+  src:url('../fonts/arialrounded.ttf');
+};
+@font-name:arialrounded;
+body{
+  margin:0;
+  padding:0;
+  font-family: 'Microsoft YaHei';
+  font-size: 14px;
+}
+a{
+  text-decoration: none;
+  color:@font-color;
+}
+a:hover,a:active,a:focus{
+  text-decoration: none;
+}
+
+
+/*start header*/
+header{
+    padding-top: 10px;
+    border-bottom: 2px solid @main-color;
+    nav.navbar-default {
+        width: 100%;
+        border: 0;
+        margin-bottom: 0;
+        background-color: transparent;
+        .navbar-toggle {
+            .slidenav-toggle {
+                width: 25px;
+                height: 16px;
+                border-top: 2px solid @main-color;
+                border-bottom: 2px solid @main-color;
+                background-color: @main-color;
+                padding: 5px 0;
+                background-clip: content-box;
+                cursor: pointer;
+            }
+        }
+        .navbar-toggle:focus {
+            background-color: transparent;
+        }
+        .navbar-toggle:hover {
+            background-color: @main-color;
+            .slidenav-toggle {
+                border-top: 2px solid #fff;
+                border-bottom: 2px solid #fff;
+                background-color: #fff;
+            }
+        }
+
+        /*lotuskb(konwledge base)*/
+        .navbar-brand {
+            font-family: arialrounded;
+            font-size: 37px;
+            letter-spacing: 2px;
+            color: @main-color;
+            span {
+                font-size: 20px;
+                color: @font-color;
+            }
+        }
+        .navbar-brand:hover {
+            color: @main-color;
+        }
+
+        .navbar-collapse {
+            overflow-y: hidden;
+        }
+        .navbar-collapse.in {
+            overflow-y: visible;
+        }
+
+        /*用户登录时右边样式*/
+        .btn-user {
+            float: right;
+            //margin-left: 15px;
+            .btn-group {
+                position: relative;
+                a {
+                    display: inline-block;
+                    margin-bottom: 5px;
+                    img {
+                        border: 1px solid @main-color;
+                        border-radius: 50%;
+                        padding: 2px;
+
+                    }
+                }
+                .dropdown-nav {
+                    display: none;
+                    position: absolute;
+                    margin-top: 11px;
+                    width: 250px;
+                    right: 0;
+                    text-align: center;
+                    list-style: none;
+                    z-index: 11;
+                    border: 1px solid @line-color;
+                    box-shadow: 0 0 2px 0 #eee;
+                    background-color: #fff;
+                    .dropdown-nav-title {
+                        width: 100%;
+                        height: 80px;
+                        background: url('../images/user-bg.jpg') no-repeat;
+                        p {
+                            color: #fff;
+                            line-height: 80px;
+                            font-size: 13px;
+                        }
+                    }
+                    p {
+                        font-size: 12px;
+                        margin-bottom: 0;
+                    }
+                    p:last-child {
+                        border-bottom: 0;
+                    }
+                    a {
+                        display: block;
+                        line-height: 30px;
+                    }
+                    a:hover {
+                        background-color: @main-color;
+                        color: #fff;
+                    }
+                }
+                .dropdown-nav:before {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-bottom: 11px solid @main-color;
+                    border-left: 8px solid transparent;
+                    border-right: 8px solid transparent;
+                    position: absolute;
+                    top: -11px;
+                    right: 10px;
+                }
+            }
+            .user-center {
+                height: 50px;
+                a {
+                    display: inline-block;
+                    padding: .7em 2.5em;
+                    letter-spacing: 2px;
+                    border: 1px solid @main-color;
+                    color: @font-color;
+                    font-size: 12px;
+                }
+                a:hover {
+                    background-color: @main-color;
+                    color: #fff;
+                }
+            }
+        }
+        @media (max-width: @screen-xs-max - 1) {
+            .btn-user {
+                margin-top: 17px;
+            }
+        }
+        /*end 用户登录时右边样式*/
+
+        /*用户未登录时右边样式*/
+        .input-login {
+            float: right;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            padding-right: 20px;
+            a {
+                display: inline-block;
+                width: 80px;
+                height: 35px;
+                line-height: 35px;
+                letter-spacing: 2px;
+                font-size: 12px;
+                background-color: @red-color;
+                color: #fff;
+                text-align: center;
+            }
+            a:hover {
+                background-color: @red-color-hover;
+            }
+        }
+        /*搜索框*/
+        .search-wrap {
+            float: right;
+            position: relative;
+            width: 0;
+            min-width: 80px;
+            height: 35px;
+            overflow: hidden;
+            margin: 5px 10px 10px 0;
+            -webkit-transition: width .2s ease-in;
+            -moz-transition: width .2s ease-in;
+            -o-transition: width .2s ease-in;
+            transition: width .2s ease-in;
+            .search-input {
+                width: 220px;
+                height: 35px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                outline: none;
+                line-height: 35px;
+                border: 0;
+                background-color: @bg-color;
+                color: #fff;
+                padding-left: 10px;
+                font-size: 12px;
+            }
+            .search-submit {
+                width: 80px;
+                height: 35px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                outline: none;
+                line-height: 35px;
+                cursor: pointer;
+                background-color: @main-color;
+                border: 0;
+                color: #fff;
+                letter-spacing: 2px;
+                font-size: 12px;
+            }
+            .search-submit:hover {
+                background-color: @main-color-hover;
+            }
+        }
+        .search-open {
+            width: 300px;
+        }
+        /*屏幕小于768px*/
+        @media (max-width: @screen-xs-max - 1) {
+            .top-nav{
+                border-bottom: 1px solid @line-color;
+            }
+            .input-login {
+                float: right;
+                margin: 25px 0;
+            }
+            .search-wrap {
+                float: right;
+                margin: 25px 10px;
+            }
+        }
+
+    }
+}
+/*屏幕小于460px*/
+@media(max-width:@screen-xs-min){
+  header{
+    width: 520px;
+  }
+}
+@media (min-width: @screen-xs-max) {
+    header{
+        height: 70px;
+    }
+}
+
+/*end header*/
+
+/*start footer*/
+footer.well{
+    height: 60px;
+  margin-bottom: 0;
+  text-align: center;
+  background-color: @bg-color;
+  border: 0;
+  border-radius: 0;
+  clear: both;
+  z-index: 10;
+  p{
+    color: #fff;
+  }
+}
+@media (max-width: @screen-xs-min) {
+  footer.well{
+    width: 520px;
+  }
+}
+/*end footer*/

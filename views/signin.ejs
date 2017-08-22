@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('templates/header-title') %>
+    <link rel="stylesheet" href="stylesheets/signin.css">
+</head>
+<body>
+
+<%- include('templates/header-simple') %>
+<div class="signin">
+    <div class="signin-box">
+        <form action="" class="signin-form" method="post">
+            <div class="form-head"></div>
+            <div class="form-title">
+                <span class="horizontal-line"></span>
+                <p>用户登录</p>
+                <span class="horizontal-line"></span>
+            </div>
+            <div class="form-email">
+                <input type="email" name="username" placeholder="example@vidahouse.com" autofocus>
+            </div>
+            <div class="form-password">
+                <input type="password" name="password" placeholder="your password">
+            </div>
+            <div class="form-submit">
+                <button type="submit" class="" id="signin-submit">登录</button>
+            </div>
+            <div class="prompt-text">
+                <%= errors %>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include('templates/footer')%>
+</body>
+</html>

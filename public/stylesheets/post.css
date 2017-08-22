@@ -1,0 +1,127 @@
+body {
+  font-family: "Microsoft YaHei";
+}
+/*两个编辑器样式*/
+.newpage-content {
+  /*切换编辑器*/
+  /*html编辑器*/
+  /*markdown编辑器*/
+  /*两个编辑器的自适应问题*/
+}
+.newpage-content .title {
+  color: #8c8c8c;
+}
+.newpage-content .title input[type="text"] {
+  border: 1px solid #d9dde1;
+  height: 30px;
+  outline-style: none;
+  padding-left: 10px;
+  transition: border .3s linear;
+}
+.newpage-content .title input[type="text"]:focus {
+  border: 1px solid #3d7d52;
+  border-radius: 5px;
+}
+.newpage-content .title label {
+  font-weight: 400;
+  color: #8c8c8c;
+  line-height: 30px;
+}
+.newpage-content .editor-toggle {
+  margin: 15px 0;
+}
+.newpage-content .editor-toggle a {
+  color: #3d7d52;
+  font-weight: bolder;
+}
+.newpage-content .editor-toggle a:hover {
+  color: #28905A;
+}
+.newpage-content .tag-content {
+  margin: 10px;
+}
+.newpage-content .tag-content span {
+  position: relative;
+  display: inline-block;
+  padding: .3em 1.2em;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  color: #fff;
+  background-color: #DD575C;
+  border-radius: 5px;
+}
+.newpage-content .tag-content span a {
+  all: initial;
+  position: relative;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  left: 10px;
+}
+.newpage-content .tag-content span a:after {
+  content: '×';
+  line-height: 15px;
+  position: absolute;
+  top: 0.6px;
+  left: 1px;
+  color: white;
+  font-weight: bolder;
+  font-size: 13px;
+}
+.newpage-content .col-sm-3,
+.newpage-content .col-sm-9 {
+  position: static;
+}
+.newpage-content .category label {
+  font-weight: normal;
+  color: #8c8c8c;
+  line-height: 34px;
+}
+.newpage-content .category a {
+  color: #DD575C;
+  font-weight: bolder;
+  border-radius: 0;
+}
+.newpage-content .category span {
+  color: #8c8c8c;
+}
+.newpage-content .submit {
+  text-align: center;
+  margin: 30px auto;
+}
+.newpage-content .submit button {
+  padding: .5em 2em;
+  background-color: #DD575C;
+  color: #fff;
+  border: 0;
+  letter-spacing: 2px;
+}
+.newpage-content .submit button:hover {
+  background-color: #C03B37;
+}
+.newpage-content .html-editor {
+  margin-top: 50px;
+}
+.newpage-content .html-editor textarea {
+  min-height: 650px;
+}
+.newpage-content .markdown-editor {
+  margin-top: 50px;
+}
+@media (max-width: 768px) {
+  .newpage-content .html-editor {
+    width: 100%;
+  }
+  .newpage-content .markdown-editor {
+    width: 100%;
+  }
+}
+@media (max-width: 520px) {
+  .newpage-content .html-editor {
+    width: 510px;
+  }
+  .newpage-content .markdown-editor {
+    width: 520px;
+  }
+}

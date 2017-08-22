@@ -1,0 +1,158 @@
+@font-face {
+  font-family: arialrounded;
+  src: url('../fonts/arialrounded.ttf');
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Microsoft YaHei';
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+}
+nav {
+  background-color: #ee6e73;
+  width: 100%;
+  box-shadow: none;
+}
+nav a {
+  color: #8c8c8c;
+}
+.modify-info {
+  height: 850px;
+  background: url("../images/userinfoModify-bg.jpg");
+  background-size: cover;
+  /*end modify-form*/
+}
+.modify-info .modify-form {
+  width: 600px;
+  height: 780px;
+  background-color: rgba(255, 255, 255, 0.3);
+  position: relative;
+  margin: 0 auto;
+  top: 50px;
+  /*end form-box*/
+}
+.modify-info .modify-form .form-group {
+  margin-top: 30px;
+}
+.modify-info .modify-form .modify-form-title {
+  padding: 15px;
+  border-bottom: 1px solid #8c8c8c;
+}
+.modify-info .modify-form .modify-form-title p {
+  color: #181818;
+  letter-spacing: 1px;
+  margin: 0;
+}
+.modify-info .modify-form .form-box {
+  width: 75%;
+  margin: 15px auto 0;
+  color: #181818;
+}
+.modify-info .modify-form .form-box .avator {
+  width: 100%;
+  height: 280px;
+  clear: both;
+}
+.modify-info .modify-form .form-box .avator .label-portrait {
+  float: left;
+}
+.modify-info .modify-form .form-box .avator .headportrait {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
+.modify-info .modify-form .form-box .avator .file-choose .btn {
+  width: 80px;
+  height: 35px;
+  padding: 0;
+  margin-top: 10px;
+  line-height: 35px;
+}
+.modify-info .modify-form .form-box .avator .file-choose input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 80px;
+  height: 35px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.modify-info .modify-form .form-box .avator .file-choose .file-path {
+  width: 82%;
+  float: left;
+}
+.modify-info .modify-form .form-box .avator .upload {
+  float: right;
+  display: inline-block;
+  padding-left: 25px;
+}
+.modify-info .modify-form .form-box .materialize-textarea {
+  padding: 10px 0 0;
+}
+.modify-info .modify-form .form-box .submit {
+  margin-top: 30px;
+  text-align: center;
+}
+.modify-info .modify-form .form-box .submit button {
+  width: 50%;
+  height: 35px;
+  background-color: #DD575C;
+  color: #fff;
+  letter-spacing: 2px;
+  border: 0;
+}
+/*错误提示模态框*/
+.modal {
+  width: 350px;
+  height: 200px;
+  bottom: 0;
+  left: 0;
+  outline: 0 none;
+  overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1050;
+  background-clip: padding-box;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+}
+.modal-dialog {
+  color: #DD575C;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .modify-info {
+    width: 750px;
+  }
+}
+/*start footer*/
+footer.well {
+  margin-bottom: 0;
+  text-align: center;
+  background-color: #3a3a3a;
+  border: 0;
+  border-radius: 0;
+  min-height: 20px;
+  padding: 10px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+footer.well p {
+  color: #fff;
+}
+@media (max-width: 768px) {
+  footer.well {
+    width: 750px;
+  }
+}
+/*end footer*/

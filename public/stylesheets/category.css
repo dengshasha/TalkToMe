@@ -1,0 +1,35 @@
+.main {
+  margin: 50px auto 0;
+  min-height: 800px;
+  width: 62%;
+  color: #8c8c8c;
+}
+.main .add-root {
+  margin-bottom: 30px;
+}
+.main .add-root label {
+  font-weight: normal;
+  text-align: center;
+  color: #8c8c8c;
+  line-height: 30px;
+}
+.main .add-root a {
+  background-color: #DD575C;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .main .add-root .add-root-btn {
+    margin-top: 20px;
+  }
+}
+.main .add-category label {
+  font-weight: normal;
+  text-align: right;
+  line-height: 35px;
+  color: #8c8c8c;
+}
+@media (max-width: 520px) {
+  .main {
+    width: 520px;
+  }
+}

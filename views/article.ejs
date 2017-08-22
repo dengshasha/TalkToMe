@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('templates/header-title') %>
+    <link rel="stylesheet" href="/stylesheets/article.css">
+    <link rel="stylesheet" href="resources/editor.md/css/editormd.css" />
+    <link rel="stylesheet" href="resources/bootstrap-treeview/bootstrap-treeview.css">
+</head>
+<body>
+<%- include('templates/header-simple') %>
+<div class="all" id="all">
+    <div class="article-bg"></div>
+    <div class="article-all">
+        <div class="article-slidenav">
+            <div class="author">
+                <h5>个人资料</h5>
+                <div class="avatar">
+                    <a href="/manage/?userId=<%= postUser._id %>" >
+                        <img src="<%= postUser.avatar %>" alt="" width="60px" height="60px">
+                    </a>
+                </div>
+                <a href="/manage/?userId=<%= postUser._id %>" ><%= postUser.username %></a>
+            </div>
+            <div class="category">
+                <h5>文章分类</h5>
+                <div id="tree"></div>
+            </div>
+        </div>
+        <div class="article-detailed" id="article-detailed">
+            <div class="head">
+                <div class="title">
+                    <h3>
+                        <a href="#">
+                            <%= post.title %>
+                        </a>
+                    </h3>
+                </div>
+                <div class="classification">
+                    <p>分类：<a href="">
+                            <%= post.categoryName %>
+                        </a>
+                    </p>
+                </div>
+                <div class="time">
+                    <p>
+                        <span>
+                            <%= post.time %>
+                        </span>
+                        <% if(user) {
+                        if(user.username == postUser.username) { %>
+                        <a href="/post/edit/?id=<%=post._id%>">编辑</a>&nbsp;|&nbsp;
+                        <a href="#" data-target="#remove" data-toggle="modal">删除</a>
+                        <% }
+                        }%>
+                    </p>
+                </div>
+            </div><!--end head-->
+
+
+
+            <div id="content">
+                <% if(post.mkContent) { %>
+                <div class="content" id="mk-content">
+                    <textarea name="" id="editormd-mk-content" style="display: none;"><%= post.mkContent %></textarea>
+                </div>
+                <% } else { %>
+                <div class="content">
+                    <%- post.content %>
+                </div>
+                <% } %>
+            </div>
+        </div>
+
+    </div>
+
+    <!--删除-->
+    <div class="modal fade" id="remove" tabindex="-1" role="dialog" aria-labelledby="prompt-label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">提醒</h4>
+                </div>
+                <div class="modal-body" style="text-align: center;">
+                    <p>确定要删除这篇文章吗？</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" v-on:click="removeArticle()">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('templates/modal') %>
+
+</div><!--end /.all-->
+
+
+
+<%- include('templates/footer') %>
+</body>
+<script src="resources/editor.md/editormd.js"></script><!--markdown editor-->
+<script src="resources/editor.md/lib/marked.min.js"></script>
+<script src="resources/editor.md/lib/prettify.min.js"></script>
+<script src="resources/editor.md/lib/raphael.min.js"></script>
+<script src="resources/editor.md/lib/underscore.min.js"></script>
+<script src="resources/editor.md/lib/sequence-diagram.min.js"></script>
+<script src="resources/editor.md/lib/flowchart.min.js"></script>
+<script src="resources/editor.md/lib/jquery.flowchart.min.js"></script>
+<script src="resources/bootstrap-treeview/bootstrap-treeview.js"></script>
+<script>
+    var userId = '<%= postUser._id %>';
+    var postId = "<%= post._id %>";
+</script>
+<script src="/javascripts/article.js"></script>
+</html>
+

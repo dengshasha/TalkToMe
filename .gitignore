@@ -1,0 +1,21 @@
+!config/default.*
+npm-debug.log
+node_modules/
+public/img
+coverage
+.DS_Store
+dist/
+test/unit/coverage
+test/e2e/reports
+selenium-debug.log
+#webpack 配置文件
+.idea
+# webpack 打包后的文件
+#distviews
+#includes
+
+#日志文件
+logs/log_date/*.log
+logs/log_file/*.log.*
+logs/log_file/*.log
+npm-debug.log.*

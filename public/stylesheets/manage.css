@@ -1,0 +1,259 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Microsoft YaHei';
+  font-size: 14px;
+  color: #8c8c8c;
+}
+@font-face {
+  font-family: arialrounded;
+  src: url('../fonts/arialrounded.ttf');
+}
+/*背景图*/
+.manage-bg {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  background: url("../images/manage-bg1.jpg") no-repeat no-repeat;
+  background-size: cover;
+  /*end manage-information*/
+}
+.manage-bg .manage-information {
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+.manage-bg .manage-information .success-info {
+  text-align: center;
+  color: #8c8c8c;
+}
+.manage-bg .manage-information .manage-portrait {
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  top: 65%;
+  left: 0;
+  border-radius: 50%;
+  text-align: center;
+  border: 5px solid #000;
+}
+.manage-bg .manage-information .manage-portrait img {
+  border-radius: 50%;
+}
+.manage-bg .manage-information .manage-user-information {
+  margin: 0 auto;
+  padding-top: 130px;
+  padding-left: 200px;
+  overflow: hidden;
+}
+.manage-bg .manage-information .manage-user-information h2 {
+  font-family: arialrounded;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: bold;
+}
+.manage-bg .manage-information .manage-user-information h5 {
+  color: #fff;
+  letter-spacing: 2px;
+}
+@media (max-width: 1200px) {
+  .manage-bg .manage-information {
+    width: 100%;
+  }
+  .manage-bg .manage-information .manage-portrait {
+    left: 40px;
+  }
+}
+@media (max-width: 520px) {
+  .manage-bg {
+    width: 520px;
+  }
+}
+/*end manage-bg*/
+.manage-content {
+  width: 50%;
+  min-height: 550px;
+  height: auto;
+  margin: 0 auto;
+  /*end manage-option*/
+  /*end manage-info*/
+  /*个人信息版块*/
+  /* end detailed-user-info 个人信息版块 */
+  /*start 个人分类*/
+  /*end 个人分类*/
+  /*start 用户管理*/
+  /*end 用户管理*/
+}
+.manage-content .manage-option {
+  margin-top: 80px;
+  border-bottom: 1px solid #3d7d52;
+}
+.manage-content .manage-option a {
+  font-size: 12px;
+  width: 100px;
+  display: inline-block;
+  line-height: 30px;
+  text-align: center;
+}
+.manage-content .manage-option a.active {
+  border: 1px solid #3d7d52;
+  border-bottom: 0;
+  color: #3d7d52;
+  font-weight: bolder;
+}
+.manage-content .manage-info {
+  margin-top: 30px;
+  /*我的文章版块*/
+}
+.manage-content .manage-info .mypermission table {
+  font-size: 12px;
+}
+.manage-content .manage-info .mypermission table td {
+  height: 40px;
+  line-height: 40px;
+}
+.manage-content .manage-info .mypermission table td a {
+  color: #368043;
+}
+.manage-content .manage-info .mypermission table td a:hover {
+  text-decoration: underline;
+}
+.manage-content .manage-info .mypermission .table > tbody > tr > td {
+  border-top: 0;
+}
+.manage-content .manage-info .mypermission .add-article {
+  text-align: center;
+}
+.manage-content .manage-info .mypermission .add-article button {
+  background-color: #DD575C;
+  color: #fff;
+  border-radius: 0;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+.manage-content .detailed-user-info {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+.manage-content .detailed-user-info .detailed-user-info-head {
+  width: 100%;
+  height: 130px;
+  text-align: center;
+  margin-top: 30px;
+}
+.manage-content .detailed-user-info .detailed-user-info-head img {
+  border-radius: 50%;
+  border: 2px solid #DD575C;
+}
+.manage-content .detailed-user-info .detailed-user-info-name {
+  width: 100%;
+  text-align: center;
+}
+.manage-content .detailed-user-info .detailed-user-info-name p {
+  margin-top: 25px;
+}
+.manage-content .detailed-user-info .userinfoModify {
+  margin-top: 50px;
+}
+.manage-content .detailed-user-info .userinfoModify a {
+  padding: .6em 1.5em;
+  background-color: #DD575C;
+  color: #fff;
+}
+.manage-content .detailed-user-info .userinfoModify a:hover {
+  text-decoration: none;
+  background-color: #C03B37;
+}
+.manage-content .add-root {
+  margin-bottom: 30px;
+}
+.manage-content .add-root label {
+  font-weight: normal;
+  text-align: center;
+  color: #8c8c8c;
+  line-height: 30px;
+}
+.manage-content .add-root a {
+  background-color: #DD575C;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .manage-content .add-root .add-root-btn {
+    margin-top: 20px;
+  }
+}
+.manage-content .add-category label {
+  font-weight: normal;
+  text-align: right;
+  line-height: 35px;
+  color: #8c8c8c;
+}
+.manage-content .category-tree {
+  font-size: 12px;
+}
+.manage-content .user .info {
+  text-align: center;
+  margin: 20px auto;
+  height: 180px;
+  border: 1px solid #d9dde1;
+  border-radius: 5px;
+  padding: 10px;
+}
+.manage-content .user .avatar {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 1px solid #3d7d52;
+  text-align: center;
+}
+.manage-content .user .avatar img {
+  width: 67px;
+  height: 67px;
+}
+.manage-content .user .name {
+  margin-top: 10px;
+}
+.manage-content .user .btn {
+  background-color: #3d7d52;
+  color: #fff;
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+@media (max-width: 1200px) {
+  .manage-content {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  .manage-content {
+    width: 100%;
+  }
+  .manage-content .manage-option {
+    margin-top: 80px;
+  }
+}
+@media (max-width: 520px) {
+  .manage-content {
+    width: 520px;
+  }
+}
+/*end manage-content*/
+/*start footer*/
+footer.well {
+  margin-bottom: 0;
+  text-align: center;
+  background-color: #3a3a3a;
+  border: 0;
+  border-radius: 0;
+  clear: both;
+  z-index: 1;
+  position: relative;
+}
+footer.well p {
+  color: #fff;
+}
+/*end footer*/
